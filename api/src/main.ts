@@ -1,3 +1,3 @@
-import { makePaymentHandler } from "./factories/payment-handler-factory.js";
+import { makePaymentHandler } from "./factories/payment-handler-factory";
 
 export const handler = makePaymentHandler();

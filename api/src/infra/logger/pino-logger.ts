@@ -1,6 +1,6 @@
 import { pino, type Logger } from "pino";
 
-import type { AppConfig } from "../../config/app-config.js";
+import type { AppConfig } from "../../config/app-config";
 
 export type AppLogger = Logger;
 

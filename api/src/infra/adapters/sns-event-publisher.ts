@@ -3,9 +3,9 @@ import { PublishCommand, type SNSClient } from "@aws-sdk/client-sns";
 import type {
   EventPublisher,
   PublishResult,
-} from "../../application/ports/event-publisher.js";
-import type { Payment } from "../../domain/entities/payment.js";
-import type { AppLogger } from "../logger/pino-logger.js";
+} from "../../application/ports/event-publisher";
+import type { Payment } from "../../domain/entities/payment";
+import type { AppLogger } from "../logger/pino-logger";
 
 export class SnsEventPublisher implements EventPublisher {
   constructor(
