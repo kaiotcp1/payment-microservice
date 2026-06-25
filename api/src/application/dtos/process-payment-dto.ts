@@ -1,4 +1,4 @@
-import type { Payment } from "../../domain/entities/payment.js";
+import type { Payment } from "../../domain/entities/payment";
 
 export interface ProcessPaymentInput {
   amount: number;

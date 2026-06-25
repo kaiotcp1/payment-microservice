@@ -1,11 +1,11 @@
-import type { Payment } from "../../domain/entities/payment.js";
-import { IdempotencyKey } from "../../domain/value-objects/idempotency-key.js";
+import type { Payment } from "../../domain/entities/payment";
+import { IdempotencyKey } from "../../domain/value-objects/idempotency-key";
 import type {
   ProcessPaymentInput,
   ProcessPaymentOutput,
-} from "../dtos/process-payment-dto.js";
-import { ProcessPaymentError } from "../errors/application-error.js";
-import type { EventPublisher } from "../ports/event-publisher.js";
+} from "../dtos/process-payment-dto";
+import { ProcessPaymentError } from "../errors/application-error";
+import type { EventPublisher } from "../ports/event-publisher";
 
 export class ProcessPaymentUseCase {
   constructor(private readonly eventPublisher: EventPublisher) {}

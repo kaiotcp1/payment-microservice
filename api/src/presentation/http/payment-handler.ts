@@ -3,16 +3,16 @@ import type {
   APIGatewayProxyResultV2,
 } from "aws-lambda";
 
-import { ApplicationError } from "../../application/errors/application-error.js";
-import type { ProcessPaymentUseCase } from "../../application/use-cases/process-payment.js";
-import type { AppLogger } from "../../infra/logger/pino-logger.js";
+import { ApplicationError } from "../../application/errors/application-error";
+import type { ProcessPaymentUseCase } from "../../application/use-cases/process-payment";
+import type { AppLogger } from "../../infra/logger/pino-logger";
 import {
   emptyResponse,
   errorResponse,
   jsonResponse,
-} from "./http-response.js";
-import { parseJsonBody } from "./helpers/parse-json-body.js";
-import { PaymentRequestSchema } from "./schema/payment-request-schema.js";
+} from "./http-response";
+import { parseJsonBody } from "./helpers/parse-json-body";
+import { PaymentRequestSchema } from "./schema/payment-request-schema";
 
 export class PaymentHttpHandler {
   constructor(

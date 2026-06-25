@@ -3,12 +3,12 @@ import type {
   APIGatewayProxyResultV2,
 } from "aws-lambda";
 
-import { ProcessPaymentUseCase } from "../application/use-cases/process-payment.js";
-import { loadConfig } from "../config/app-config.js";
-import { SnsEventPublisher } from "../infra/adapters/sns-event-publisher.js";
-import { createSnsClient } from "../infra/aws/sns-client.js";
-import { createLogger } from "../infra/logger/pino-logger.js";
-import { PaymentHttpHandler } from "../presentation/http/payment-handler.js";
+import { ProcessPaymentUseCase } from "../application/use-cases/process-payment";
+import { loadConfig } from "../config/app-config";
+import { SnsEventPublisher } from "../infra/adapters/sns-event-publisher";
+import { createSnsClient } from "../infra/aws/sns-client";
+import { createLogger } from "../infra/logger/pino-logger";
+import { PaymentHttpHandler } from "../presentation/http/payment-handler";
 
 export function makePaymentHandler(): (
   event: APIGatewayProxyEventV2

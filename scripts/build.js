@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync } from "node:fs";
+import { existsSync, mkdirSync, rmSync } from "node:fs";
 import { createRequire } from "node:module";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -12,25 +12,26 @@ const lambdaRequire = createRequire(resolve(LAMBDA_DIR, "package.json"));
 const esbuild = lambdaRequire("esbuild");
 const { build, analyzeMetafile } = esbuild;
 
-if (!existsSync(DIST_DIR)) {
-  mkdirSync(DIST_DIR, { recursive: true });
+if (existsSync(DIST_DIR)) {
+  rmSync(DIST_DIR, { recursive: true, force: true });
 }
+
+mkdirSync(DIST_DIR, { recursive: true });
 
 console.log(`[build] Iniciando build da Lambda...`);
 console.log(`[build] Source: ${LAMBDA_DIR}/src/main.ts`);
-console.log(`[build] Target: ${DIST_DIR}/main.mjs`);
+console.log(`[build] Target: ${DIST_DIR}/main.js`);
 
 try {
   const result = await build({
     entryPoints: [resolve(LAMBDA_DIR, "src/main.ts")],
-    outfile: resolve(DIST_DIR, "main.mjs"),
+    outfile: resolve(DIST_DIR, "main.js"),
     bundle: true,
     minify: false,
     sourcemap: true,
     platform: "node",
     target: "node22",
-    format: "esm",
-    external: ["@aws-sdk/*"],
+    format: "cjs",
     treeShaking: true,
     metafile: true,
   });
@@ -39,7 +40,7 @@ try {
   console.log(analysis);
 
   console.log(`[build] Build concluido com sucesso!`);
-  console.log(`[build]   Arquivo: ${DIST_DIR}/main.mjs`);
+  console.log(`[build]   Arquivo: ${DIST_DIR}/main.js`);
 } catch (error) {
   console.error("[build] Erro no build:", error);
   process.exit(1);

@@ -22,5 +22,5 @@ node ../scripts/build.js
 echo ""
 echo "========================================="
 echo " Build concluido!"
-echo " Bundle: api/dist/main.mjs"
+echo " Bundle: api/dist/main.js"
 echo "========================================="
