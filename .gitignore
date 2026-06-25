@@ -1,0 +1,33 @@
+# Dependências
+node_modules/
+api/node_modules
+dist/node_modules
+
+
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/.terraform.lock.hcl
+terraform/terraform.tfvars
+terraform-bootstrap/.terraform/
+terraform-bootstrap/*.tfstate
+terraform-bootstrap/*.tfstate.*
+terraform-bootstrap/terraform.tfvars
+
+# Build da Lambda
+api/dist/
+dist/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Variáveis de ambiente
+.env
+.env.local
+/docs/project

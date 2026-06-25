@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", // Suporte ES2022 nativo
+    "module": "ES2022", // Import/Export com ESM
+    "moduleResolution": "bundler",
+    "lib": [
+      "ES2022"
+    ],
+    "types": ["node"],
+    "strict": true, // Habilita todas as verificações de tipo estritas
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": false,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "."
+  },
+  "include": [
+    "src/**/*.ts" // Inclui todos os arquivos TypeScript na pasta src
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

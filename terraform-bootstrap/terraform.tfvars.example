@@ -1,0 +1,24 @@
+aws_region = "us-east-1"
+
+app_name    = "payment-ms"
+environment = "dev"
+cost_center = "engineering"
+
+# Replace these with your GitHub owner and repository.
+github_owner      = "your-github-user-or-org"
+github_repository = "payment-microservice"
+
+# Optional. The default allows any workflow from this repository:
+# repo:<owner>/<repo>:*
+# For a tighter setup, configure GitHub environments and use:
+# github_oidc_subjects = ["repo:<owner>/<repo>:environment:dev"]
+
+# Optional. Leave null to generate a globally unique bucket name using your AWS account ID.
+# state_bucket_name = "payment-ms-dev-123456789012-us-east-1-tfstate"
+
+# Optional. Enabled by default.
+create_lock_table = true
+
+# Optional. AdministratorAccess is pragmatic for the first learning/dev deploy.
+# For production, set this to false and attach a narrower managed policy via additional_policy_arns.
+attach_administrator_policy = true
